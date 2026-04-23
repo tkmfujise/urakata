@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cp3kppmysbpmg"]
+
+[ext_resource type="Script" uid="uid://j1om01aov7ve" path="res://addons/urakata/src/repl/repl.gd" id="1_thd0m"]
+[ext_resource type="Script" uid="uid://cgm86x34nus7v" path="res://addons/urakata/resources/mode.gd" id="2_tswuk"]
+
+[sub_resource type="Resource" id="Resource_tswuk"]
+script = ExtResource("2_tswuk")
+label = "code"
+emoji = "📝"
+color = Color(0, 0, 1, 1)
+default = true
+metadata/_custom_type_script = "uid://cgm86x34nus7v"
+
+[sub_resource type="Resource" id="Resource_ud7qj"]
+script = ExtResource("2_tswuk")
+label = "shell"
+emoji = "⬛️"
+color = Color(1, 0, 0, 1)
+character = ";"
+metadata/_custom_type_script = "uid://cgm86x34nus7v"
+
+[sub_resource type="Resource" id="Resource_k2e67"]
+script = ExtResource("2_tswuk")
+label = "task"
+emoji = "🪄"
+color = Color(7.2677435e-06, 0.75430113, 1.1551381e-06, 1)
+character = "]"
+metadata/_custom_type_script = "uid://cgm86x34nus7v"
+
+[sub_resource type="Resource" id="Resource_dqvrj"]
+script = ExtResource("2_tswuk")
+label = "help"
+emoji = "❓"
+color = Color(1, 0.7294118, 0, 1)
+character = "?"
+metadata/_custom_type_script = "uid://cgm86x34nus7v"
+
+[node name="REPL" type="HBoxContainer" unique_id=1694261894]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_thd0m")
+modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_tswuk"), SubResource("Resource_ud7qj"), SubResource("Resource_k2e67"), SubResource("Resource_dqvrj")])
+
+[node name="ModeName" type="RichTextLabel" parent="." unique_id=1247507881]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+bbcode_enabled = true
+text = "📝
+[b][color=#0000ff]code>[/color][/b]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prompt" type="CodeEdit" parent="." unique_id=1347233903]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+scroll_fit_content_height = true
+caret_blink = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
