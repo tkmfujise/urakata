@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://j1om01aov7ve" path="res://addons/urakata/src/repl/repl.gd" id="1_thd0m"]
 [ext_resource type="Script" uid="uid://cgm86x34nus7v" path="res://addons/urakata/resources/mode.gd" id="2_tswuk"]
+[ext_resource type="Script" uid="uid://7q8yxgnfuxn5" path="res://addons/urakata/src/modes/code_mode.gd" id="3_ud7qj"]
 
-[sub_resource type="Resource" id="Resource_tswuk"]
-script = ExtResource("2_tswuk")
+[sub_resource type="Resource" id="Resource_ckk2w"]
+script = ExtResource("3_ud7qj")
 label = "code"
 emoji = "📝"
 color = Color(0, 0, 1, 1)
-default = true
-metadata/_custom_type_script = "uid://cgm86x34nus7v"
+metadata/_custom_type_script = "uid://7q8yxgnfuxn5"
 
 [sub_resource type="Resource" id="Resource_ud7qj"]
 script = ExtResource("2_tswuk")
@@ -35,8 +35,6 @@ color = Color(1, 0.7294118, 0, 1)
 character = "?"
 metadata/_custom_type_script = "uid://cgm86x34nus7v"
 
-[sub_resource type="GDScriptSyntaxHighlighter" id="GDScriptSyntaxHighlighter_tswuk"]
-
 [node name="REPL" type="HBoxContainer" unique_id=1694261894]
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,9 +43,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_thd0m")
-modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_tswuk"), SubResource("Resource_ud7qj"), SubResource("Resource_k2e67"), SubResource("Resource_dqvrj")])
+modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_ckk2w"), SubResource("Resource_ud7qj"), SubResource("Resource_k2e67"), SubResource("Resource_dqvrj")])
 
-[node name="ModeName" type="RichTextLabel" parent="." unique_id=1247507881]
+[node name="Indicator" type="RichTextLabel" parent="." unique_id=1247507881]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -65,6 +63,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 scroll_fit_content_height = true
 caret_blink = true
-syntax_highlighter = SubResource("GDScriptSyntaxHighlighter_tswuk")
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true

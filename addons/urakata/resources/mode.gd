@@ -6,11 +6,14 @@ class_name UrakataMode
 @export var emoji : String
 @export var color : Color
 @export var character : String
-@export var default : bool = false
 
 
-func bbcode() -> String:
+func indicator() -> String:
 	return "%s\n[b][color=%s]%s>[/color][/b]" % [emoji, color_str(), label]
+
+
+func prompt_prefix() -> String:
+	return "[b][color=%s]>[/color][/b]" % [color_str()]
 
 
 func matched(key: InputEventKey) -> bool:
@@ -20,3 +23,7 @@ func matched(key: InputEventKey) -> bool:
 
 func color_str() -> String:
 	return '#' + color.to_html(false)
+
+
+func perform(text: String) -> Variant:
+	return null

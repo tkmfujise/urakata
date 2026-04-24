@@ -6,15 +6,18 @@ var current_mode : UrakataMode
 
 
 func _ready() -> void:
+	_set_syntax_highligher()
 	change_mode(_default_mode())
 	$Prompt.gui_input.connect(_prompt_input)
 
 
 func submit() -> void:
 	%Prompt.accept_event()
-	if not %Prompt.text: return
-	print('%s> %s' % [current_mode.label, %Prompt.text])
+	var text = %Prompt.text
+	if not text: return
+	print_rich('%s %s' % [current_mode.prompt_prefix(), text])
 	clear_prompt()
+	print_rich('=> %s\n' % current_mode.perform(text))
 
 
 func linebreak() -> void:
@@ -37,13 +40,18 @@ func remove_following_text() -> void:
 
 func change_mode(mode: UrakataMode) -> void:
 	current_mode = mode
-	%ModeName.text = mode.bbcode()
+	%Indicator.text = mode.indicator()
 
 
 func _default_mode() -> UrakataMode:
-	var idx = modes.find_custom(func(c): return c.default)
-	if idx != null: return modes[idx]
-	else: return modes[0]
+	return modes[0]
+
+
+# Set the highlighter only in the editor
+# to prevent erors during Gut testing.
+func _set_syntax_highligher() -> void:
+	if Engine.is_editor_hint():
+		$Prompt.syntax_highlighter = GDScriptSyntaxHighlighter
 
 
 func _prompt_input(event: InputEvent) -> void:
