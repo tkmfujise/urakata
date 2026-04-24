@@ -35,6 +35,8 @@ color = Color(1, 0.7294118, 0, 1)
 character = "?"
 metadata/_custom_type_script = "uid://cgm86x34nus7v"
 
+[sub_resource type="GDScriptSyntaxHighlighter" id="GDScriptSyntaxHighlighter_ud7qj"]
+
 [node name="REPL" type="HBoxContainer" unique_id=1694261894]
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,5 +65,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 scroll_fit_content_height = true
 caret_blink = true
+syntax_highlighter = SubResource("GDScriptSyntaxHighlighter_ud7qj")
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true

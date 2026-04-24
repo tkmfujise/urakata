@@ -13,14 +13,13 @@ class InputHistory:
 
 
 func _ready() -> void:
-	_set_syntax_highligher()
 	change_mode(_default_mode())
 	$Prompt.gui_input.connect(_prompt_input)
 
 
 func submit() -> void:
 	%Prompt.accept_event()
-	var text = %Prompt.text
+	var text = %Prompt.text.strip_edges()
 	if not text: return
 	print_rich('%s %s' % [current_mode.prompt_prefix(), text])
 	clear_prompt()
@@ -63,13 +62,6 @@ func change_mode(mode: UrakataMode) -> void:
 
 func _default_mode() -> UrakataMode:
 	return modes[0]
-
-
-# Set the highlighter only in the editor
-# to prevent erors during Gut testing.
-func _set_syntax_highligher() -> void:
-	if Engine.is_editor_hint():
-		$Prompt.syntax_highlighter = GDScriptSyntaxHighlighter.new()
 
 
 func _append_input_history(text: String) -> void:
