@@ -1,4 +1,4 @@
-# Ura Kata
+# 👥🥷👥 Ura Kata
 
 A modest, modal REPL for Godot.
 
