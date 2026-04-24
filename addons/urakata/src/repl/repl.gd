@@ -69,7 +69,7 @@ func _default_mode() -> UrakataMode:
 # to prevent erors during Gut testing.
 func _set_syntax_highligher() -> void:
 	if Engine.is_editor_hint():
-		$Prompt.syntax_highlighter = GDScriptSyntaxHighlighter
+		$Prompt.syntax_highlighter = GDScriptSyntaxHighlighter.new()
 
 
 func _append_input_history(text: String) -> void:
