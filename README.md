@@ -21,8 +21,6 @@ When the input line is empty, typing a specific single character switches the cu
 
 * **Default:** Code mode
 * **`;`** switches to Shell mode
-* **`?`** switches to Help mode
-* **`/`** switches to Task mode
 
 
 ### Code mode (default)
@@ -104,4 +102,51 @@ drwxr-xr-x@ 5 fujisetakumi  staff  160  4月 24 21:24 src
 1. Download the addons.tar.gz from the release.
 2. Extract the addons.tar.gz and place the redscribe directory into (Your godot project root)/addons directory.
 3. Open the project settings and enable Urakata.
+
+
+## Customization
+
+### Adding a Custom mode
+
+Ura Kata allows you to extend the REPL by adding your own modes.
+
+A mode is simply a script that inherits `UrakataMode` and implements `perform(text: String)`.
+
+#### 1. Define a mode Script
+```gdscript
+@tool
+extends UrakataMode
+class_name UrakataXxxMode
+
+func perform(text: String) -> Variant:
+  var result = null
+  # do_something
+	return result
+```
+
+#### 2. Register the mode in the REPL
+Open the scene `addons/urakata/src/repl/repl.tscn`.
+
+In the Inspector, find the *Modes* array.
+
+<img src="images/screenshots/urakata-repl-modes-in-inspector-screenshot.png" alt="REPL modes in Inspector screenshot">
+
+Add a new element and set the following fields:
+* **Label**: Display name of the mode
+* **Emoji**: Icon shown in the REPL prompt
+* **Color**: Accent color for the mode
+* **Character**: Prefix character to activate the mode (e.g. `?`, `/`)
+
+
+## Roadmap
+
+### v0.1.0
+* [x] Simple Code mode
+* [x] Simple Shell mode
+
+### v0.2.0 or later
+* [ ] Add other useful modes
+* [ ] Bug fix
+  * [ ] Code mode
+    * [ ] Method chain is not working (e.g. e`[1, 2].map(func(c): return i)`.
 

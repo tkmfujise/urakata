@@ -20,24 +20,6 @@ color = Color(1, 0, 0, 1)
 character = ";"
 metadata/_custom_type_script = "uid://bcemwgx22nuvd"
 
-[sub_resource type="Resource" id="Resource_k2e67"]
-script = ExtResource("2_tswuk")
-label = "task"
-emoji = "🪄"
-color = Color(7.2677435e-06, 0.75430113, 1.1551381e-06, 1)
-character = "/"
-disabled = true
-metadata/_custom_type_script = "uid://cgm86x34nus7v"
-
-[sub_resource type="Resource" id="Resource_dqvrj"]
-script = ExtResource("2_tswuk")
-label = "help"
-emoji = "❓"
-color = Color(1, 0.7294118, 0, 1)
-character = "?"
-disabled = true
-metadata/_custom_type_script = "uid://cgm86x34nus7v"
-
 [sub_resource type="GDScriptSyntaxHighlighter" id="GDScriptSyntaxHighlighter_ud7qj"]
 
 [node name="REPL" type="HBoxContainer" unique_id=1694261894]
@@ -48,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_thd0m")
-modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_ckk2w"), SubResource("Resource_lfnxr"), SubResource("Resource_k2e67"), SubResource("Resource_dqvrj")])
+modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_ckk2w"), SubResource("Resource_lfnxr")])
 
 [node name="Indicator" type="RichTextLabel" parent="." unique_id=1247507881]
 unique_name_in_owner = true
