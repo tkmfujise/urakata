@@ -119,8 +119,8 @@ extends UrakataMode
 class_name UrakataXxxMode
 
 func perform(text: String) -> Variant:
-  var result = null
-  # do_something
+	var result = null
+	# do_something
 	return result
 ```
 
