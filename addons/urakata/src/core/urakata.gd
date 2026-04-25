@@ -2,6 +2,8 @@
 extends Node
 class_name Urakata
 
+static var running_test : bool = false
+
 
 static func version() -> String:
 	var config = ConfigFile.new()

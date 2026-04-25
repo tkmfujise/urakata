@@ -1,4 +1,4 @@
-extends GutTest
+extends GutTestMeta
 
 # CAUTION: Ensure that the 'Syntax Highlighter' property for %Prompt 
 # in the .tscn file is set to 'Empty' before running GUT tests.

@@ -32,7 +32,12 @@ func execute(text: String) -> Variant:
 		try_statement(text)
 		return null
 	else:
-		return try_expression(text)[1]
+		var result = try_expression(text)
+		if result[0]:
+			return result[1]
+		else:
+			printerr(result[1])
+			return null
 
 
 func check_statement(text: String) -> bool:
@@ -50,10 +55,11 @@ func try_statement(text: String) -> Array:
 # return: [succeeded: bool, result: Variant]
 func try_expression(text: String) -> Array:
 	var expression := Expression.new()
-	var err := expression.parse(text, constants.keys())
-	if err != OK: return [false, null]
+	var dict := constants_with_utils()
+	var err := expression.parse(text, dict.keys())
+	if err != OK: return [false, expression.get_error_text()]
 	var state := context.new()
-	var result := expression.execute(constants.values(), state)
+	var result := expression.execute(dict.values(), state)
 	if expression.has_execute_failed():
 		return [true, eval(text)]
 	else:
@@ -69,6 +75,19 @@ func eval(text: String) -> Variant:
 		return obj.__eval()
 	else:
 		return null
+
+
+# CAUTION:
+# If Gut tests access EditorInterface.get_edited_scene_root,
+# it will trigger an engine error. To prevent this,
+# set `Urakata.running_test` to true during testing.
+func constants_with_utils() -> Dictionary:
+	var dict := constants.duplicate()
+	if not Urakata.running_test:
+		dict.merge({
+			'current': EditorInterface.get_edited_scene_root(),
+		})
+	return dict
 
 
 func reset_constants() -> void:

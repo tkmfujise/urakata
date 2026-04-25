@@ -1,4 +1,4 @@
-extends GutTest
+extends GutTestMeta
 
 var mode = null
 var result = null
