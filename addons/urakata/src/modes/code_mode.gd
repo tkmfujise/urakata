@@ -19,8 +19,13 @@ func _init() -> void:
 
 func perform(text: String) -> Variant:
 	if text == INIT_COMMAND:
-		statements = []
-		return
+		_init()
+		return 'Reloaded.'
+	else:
+		return "=> %s" % str(execute(text))
+
+
+func execute(text: String) -> Variant:
 	rebuild_state()
 	if check_statement(text):
 		try_statement(text)
@@ -30,7 +35,8 @@ func perform(text: String) -> Variant:
 		if result[0]:
 			return result[1]
 		else:
-			return try_statement(text)
+			try_statement(text)
+			return null
 
 
 func check_statement(text: String) -> bool:

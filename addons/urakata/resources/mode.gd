@@ -26,4 +26,4 @@ func color_str() -> String:
 
 
 func perform(text: String) -> Variant:
-	return null
+	return 'Not implemented.'

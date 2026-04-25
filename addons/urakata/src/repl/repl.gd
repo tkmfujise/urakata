@@ -24,7 +24,7 @@ func submit() -> void:
 	print_rich('%s %s' % [current_mode.prompt_prefix(), text])
 	clear_prompt()
 	_append_input_history(text)
-	print_rich('=> %s\n' % current_mode.perform(text))
+	print_rich('%s\n' % current_mode.perform(text))
 
 
 func linebreak() -> void:
