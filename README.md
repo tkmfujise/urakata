@@ -2,7 +2,7 @@
 
 A modest, modal REPL for Godot.
 
-> **Caution:** This project is currently a work in progress (WIP). It is not yet ready for production use.
+Demo Video: https://www.youtube.com/watch?v=7tLOr-d4Qek
 
 
 ## Screenshots
