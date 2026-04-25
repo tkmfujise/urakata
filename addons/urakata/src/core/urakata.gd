@@ -3,6 +3,14 @@ extends Node
 class_name Urakata
 
 
+static func version() -> String:
+	var config = ConfigFile.new()
+	var err = config.load("res://addons/urakata/plugin.cfg")
+	if err == OK:
+		return 'v' + config.get_value('plugin', 'version')
+	else: return ''
+
+
 static func get_output_panel() -> Node:
 	var output_panel = null
 	var editor_log := find_editor_class('EditorLog')
