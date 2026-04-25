@@ -94,6 +94,10 @@ func _move_prompt_caret_last() -> void:
 	%Prompt.set_caret_column(c_idx)
 
 
+func _valid_modes() -> Array[UrakataMode]:
+	return modes.filter(func(m): return not m.disabled)
+
+
 func _prompt_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed): return
 	var k := event as InputEventKey
@@ -118,9 +122,8 @@ func _prompt_input(event: InputEvent) -> void:
 				if k.keycode == KEY_BACKSPACE:
 					change_mode(_default_mode())
 				else:
-					var found = modes.filter(func(m):
+					var found = _valid_modes().filter(func(m):
 						return m.matched(k))
 					if found:
 						change_mode(found[0])
 						accept_event()
-			

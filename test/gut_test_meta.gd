@@ -8,3 +8,10 @@ func before_all():
 
 func after_all():
 	Urakata.running_test = false
+
+
+func assert_not_empty(val: Variant):
+	match typeof(val):
+		TYPE_STRING: assert_ne(val, '')
+		TYPE_ARRAY:  assert_ne(val, [])
+		_:  assert_not_null(val)

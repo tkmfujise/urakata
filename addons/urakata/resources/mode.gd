@@ -6,6 +6,7 @@ class_name UrakataMode
 @export var emoji : String
 @export var color : Color
 @export var character : String
+@export var disabled : bool = false
 
 
 func indicator() -> String:

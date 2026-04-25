@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://j1om01aov7ve" path="res://addons/urakata/src/repl/repl.gd" id="1_thd0m"]
 [ext_resource type="Script" uid="uid://cgm86x34nus7v" path="res://addons/urakata/resources/mode.gd" id="2_tswuk"]
 [ext_resource type="Script" uid="uid://7q8yxgnfuxn5" path="res://addons/urakata/src/modes/code_mode.gd" id="3_ud7qj"]
+[ext_resource type="Script" uid="uid://bcemwgx22nuvd" path="res://addons/urakata/src/modes/shell_mode.gd" id="4_k2e67"]
 
 [sub_resource type="Resource" id="Resource_ckk2w"]
 script = ExtResource("3_ud7qj")
@@ -11,13 +12,13 @@ emoji = "📝"
 color = Color(0, 0, 1, 1)
 metadata/_custom_type_script = "uid://7q8yxgnfuxn5"
 
-[sub_resource type="Resource" id="Resource_ud7qj"]
-script = ExtResource("2_tswuk")
+[sub_resource type="Resource" id="Resource_lfnxr"]
+script = ExtResource("4_k2e67")
 label = "shell"
 emoji = "⬛️"
 color = Color(1, 0, 0, 1)
 character = ";"
-metadata/_custom_type_script = "uid://cgm86x34nus7v"
+metadata/_custom_type_script = "uid://bcemwgx22nuvd"
 
 [sub_resource type="Resource" id="Resource_k2e67"]
 script = ExtResource("2_tswuk")
@@ -25,6 +26,7 @@ label = "task"
 emoji = "🪄"
 color = Color(7.2677435e-06, 0.75430113, 1.1551381e-06, 1)
 character = "/"
+disabled = true
 metadata/_custom_type_script = "uid://cgm86x34nus7v"
 
 [sub_resource type="Resource" id="Resource_dqvrj"]
@@ -33,6 +35,7 @@ label = "help"
 emoji = "❓"
 color = Color(1, 0.7294118, 0, 1)
 character = "?"
+disabled = true
 metadata/_custom_type_script = "uid://cgm86x34nus7v"
 
 [sub_resource type="GDScriptSyntaxHighlighter" id="GDScriptSyntaxHighlighter_ud7qj"]
@@ -45,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_thd0m")
-modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_ckk2w"), SubResource("Resource_ud7qj"), SubResource("Resource_k2e67"), SubResource("Resource_dqvrj")])
+modes = Array[ExtResource("2_tswuk")]([SubResource("Resource_ckk2w"), SubResource("Resource_lfnxr"), SubResource("Resource_k2e67"), SubResource("Resource_dqvrj")])
 
 [node name="Indicator" type="RichTextLabel" parent="." unique_id=1247507881]
 unique_name_in_owner = true
