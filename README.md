@@ -67,7 +67,7 @@ ERROR: gdscript://-9223352824325131985.gd:2 - Parse Error: Identifier "x" not de
 You also have access to several utility variables and helper methods.
 ```
 code> current
-=> REPL:<HBoxContainer#1741055663592> # eturns the root node of the currently edited scene.
+=> REPL:<HBoxContainer#1741055663592> # Returns the root node of the currently edited scene.
 ```
 
 
