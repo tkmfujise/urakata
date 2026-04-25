@@ -99,7 +99,7 @@ drwxr-xr-x@ 5 fujisetakumi  staff  160  4月 24 21:24 src
 
 ## Installation
 
-1. Download the addons.tar.gz from the release.
+1. Download the addons.tar.gz from the [release](https://github.com/tkmfujise/urakata/releases).
 2. Extract the addons.tar.gz and place the redscribe directory into (Your godot project root)/addons directory.
 3. Open the project settings and enable Urakata.
 
