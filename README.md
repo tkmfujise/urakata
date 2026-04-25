@@ -148,5 +148,6 @@ Add a new element and set the following fields:
 * [ ] Add other useful modes
 * [ ] Bug fix
   * [ ] Code mode
-    * [ ] Method chain is not working (e.g. e`[1, 2].map(func(c): return i)`.
+    * [ ] Value reassignment fails. (e.g. `var x = 1` then `x = 2` fails)
+    * [ ] Method chain is not working (e.g. `[1, 2].map(func(c): return i)`.
 

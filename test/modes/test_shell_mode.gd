@@ -10,7 +10,8 @@ func before_each():
 
 
 func perform(text: String):
-	return mode.perform(text)
+	result = mode.perform(text)
+	return result
 
 
 func test_perform_ls():
