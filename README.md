@@ -10,6 +10,9 @@ A modest, modal REPL for Godot.
 ### Code mode
 <img src="images/screenshots/urakata-code-screenshot.png" alt="Code mode screenshot">
 
+### Shell mode
+<img src="images/screenshots/urakata-shell-screenshot.png" alt="Shell mode screenshot">
+
 
 ## Usage
 
@@ -68,6 +71,31 @@ You also have access to several utility variables and helper methods.
 ```
 code> current
 => REPL:<HBoxContainer#1741055663592> # Returns the root node of the currently edited scene.
+```
+
+
+### Shell mode (`;`)
+```
+shell> ls
+addons
+dev
+icon.svg
+icon.svg.import
+images
+LICENSE
+project.godot
+Rakefile
+README.md
+test
+tmp
+
+shell> ls -lA addons/urakata
+total 24
+-rw-r--r--@ 1 fujisetakumi  staff  127  4月 25 21:04 plugin.cfg
+drwxr-xr-x@ 4 fujisetakumi  staff  128  4月 25 22:12 resources
+drwxr-xr-x@ 5 fujisetakumi  staff  160  4月 24 21:24 src
+-rw-r--r--@ 1 fujisetakumi  staff  427  4月 23 21:52 urakata.gd
+-rw-r--r--@ 1 fujisetakumi  staff   19  4月 22 21:25 urakata.gd.uid
 ```
 
 
