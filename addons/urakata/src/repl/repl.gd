@@ -73,7 +73,8 @@ func _append_input_history(text: String) -> void:
 	var record = InputHistory.new()
 	record.mode = current_mode
 	record.input = text
-	if not record.same(input_histories[-1]):
+	if input_histories.size() == 0 \
+	or (not record.same(input_histories[-1])):
 		input_histories.push_back(record)
 
 
