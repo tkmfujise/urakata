@@ -11,6 +11,10 @@ class InputHistory:
 	var mode : UrakataMode
 	var input : String
 
+	func same(other: InputHistory) -> bool:
+		return mode == other.mode \
+		and input == other.input
+
 
 func _ready() -> void:
 	change_mode(_default_mode())
@@ -69,7 +73,8 @@ func _append_input_history(text: String) -> void:
 	var record = InputHistory.new()
 	record.mode = current_mode
 	record.input = text
-	input_histories.push_back(record)
+	if not record.same(input_histories[-1]):
+		input_histories.push_back(record)
 
 
 func _set_input_from_history(direction: int) -> void:
