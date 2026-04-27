@@ -144,10 +144,14 @@ Add a new element and set the following fields:
 * [x] Simple Code mode
 * [x] Simple Shell mode
 
+### v0.1.1
+* [x] Bug fix
+  * [x] Code mode
+    * [x] Method chain is not working (e.g. `[1, 2].map(func(c): return i)`.
+
 ### v0.2.0 or later
 * [ ] Add other useful modes
 * [ ] Bug fix
   * [ ] Code mode
     * [ ] Value reassignment fails. (e.g. `var x = 1` then `x = 2` fails)
-    * [ ] Method chain is not working (e.g. `[1, 2].map(func(c): return i)`.
 

@@ -109,3 +109,8 @@ func test_execute_sigleton_class_method():
 func test_execute_user_defined_class_method():
 	execute('Urakata.version()')
 	assert_string_starts_with(result, 'v')
+
+
+func test_execute_lambda():
+	execute('[1, 2, 3].map(func(i): return 2 * i)')
+	assert_eq(result, [2, 4, 6])

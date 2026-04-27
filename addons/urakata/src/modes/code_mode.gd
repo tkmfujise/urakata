@@ -54,16 +54,19 @@ func try_statement(text: String) -> Array:
 
 # return: [succeeded: bool, result: Variant]
 func try_expression(text: String) -> Array:
-	var expression := Expression.new()
-	var dict := constants_with_utils()
-	var err := expression.parse(text, dict.keys())
-	if err != OK: return [false, expression.get_error_text()]
-	var state := context.new()
-	var result := expression.execute(dict.values(), state)
-	if expression.has_execute_failed():
+	if contains_lambda(text):
 		return [true, eval(text)]
 	else:
-		return [true, result]
+		var expression := Expression.new()
+		var dict := constants_with_utils()
+		var err := expression.parse(text, dict.keys())
+		if err != OK: return [false, expression.get_error_text()]
+		var state := context.new()
+		var result := expression.execute(dict.values(), state)
+		if expression.has_execute_failed():
+			return [true, eval(text)]
+		else:
+			return [true, result]
 
 
 func eval(text: String) -> Variant:
@@ -77,17 +80,31 @@ func eval(text: String) -> Variant:
 		return null
 
 
+
+func constants_with_utils() -> Dictionary:
+	var dict := constants.duplicate()
+	dict.merge(util_constants_code(TYPE_CALLABLE))
+	return dict
+
+
 # CAUTION:
 # If Gut tests access EditorInterface.get_edited_scene_root,
 # it will trigger an engine error. To prevent this,
 # set `Urakata.running_test` to true during testing.
-func constants_with_utils() -> Dictionary:
-	var dict := constants.duplicate()
-	if not Urakata.running_test:
-		dict.merge({
+func util_constants_code(type: Variant.Type) -> Dictionary:
+	if Urakata.running_test: return {}
+	match type:
+		TYPE_CALLABLE: return {
 			'current': EditorInterface.get_edited_scene_root(),
-		})
-	return dict
+		}
+		TYPE_STRING: return {
+			'current': 'EditorInterface.get_edited_scene_root()',
+		}
+		_: return {}
+
+
+func contains_lambda(text: String) -> bool:
+	return text.contains('func(')
 
 
 func reset_constants() -> void:
@@ -101,5 +118,7 @@ func reset_constants() -> void:
 func reset_context() -> void:
 	var src := ''
 	for st in statements: src += st + "\n"
+	var dict := util_constants_code(TYPE_STRING)
+	for nm in dict: src += "var %s = %s\n" % [nm, dict[nm]]
 	context.source_code = src
 	context.reload(true)
