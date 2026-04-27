@@ -147,7 +147,7 @@ Add a new element and set the following fields:
 ### v0.1.1
 * [x] Bug fix
   * [x] Code mode
-    * [x] Method chain is not working (e.g. `[1, 2].map(func(c): return i)`.
+    * [x] Lambda is not working (e.g. `[1, 2].map(func(i): return i)`.
 
 ### v0.2.0 or later
 * [ ] Add other useful modes
