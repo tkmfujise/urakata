@@ -27,7 +27,7 @@ When the input line is empty, typing a specific single character switches the cu
 
 ```
 code> 1 + 1
-=>  2
+=> 2
 
 code> var x = 1
 => null
@@ -101,7 +101,7 @@ drwxr-xr-x@ 5 fujisetakumi  staff  160  4月 24 21:24 src
 
 1. Download the addons.tar.gz from the [release](https://github.com/tkmfujise/urakata/releases).
 2. Extract the addons.tar.gz and place the redscribe directory into (Your godot project root)/addons directory.
-3. Open the project settings and enable Urakata.
+3. Open the project settings and enable Ura Kata.
 
 
 ## Customization
