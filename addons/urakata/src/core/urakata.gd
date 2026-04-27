@@ -1,8 +1,9 @@
 @tool
-extends Node
+extends RefCounted
 class_name Urakata
 
 static var running_test : bool = false
+static var Describer := preload("res://addons/urakata/src/core/describer.gd")
 
 
 static func version() -> String:
@@ -44,3 +45,7 @@ static func find_editor_class(klass_name: String, root: Node = null) -> Node:
 			node = find_editor_class(klass_name, child)
 			if node: break
 	return node
+
+
+static func describe(target: Variant) -> void:
+	print_rich(Describer.new(target).format())
