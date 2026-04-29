@@ -67,8 +67,33 @@ ERROR: gdscript://-9223352824325131985.gd:2 - Parse Error: Identifier "x" not de
 
 You also have access to several utility variables and helper methods.
 ```
+# `current` returns the root node of the currently edited scene.
 code> current
-=> REPL:<HBoxContainer#1741055663592> # Returns the root node of the currently edited scene.
+=> REPL:<HBoxContainer#1741055663592>
+
+# `ls` shows a combined list of `Engine.get_singleton_list()` and `ProjectSettings.get_global_class_list()`.
+code> ls
+Performance                Engine                     ProjectSettings        OS                        Time
+TextServerManager          NavigationServer2DManager  PhysicsServer2DManager NavigationServer3DManager PhysicsServer3DManager
+NavigationMeshGenerator    IP                         Geometry2D             Geometry3D                ResourceLoader
+ResourceSaver              ClassDB                    Marshalls              TranslationServer         Input
+InputMap                   EngineDebugger             GDExtensionManager     ResourceUID               WorkerThreadPool
+ThemeDB                    EditorInterface            JavaClassWrapper       JavaScriptBridge          AudioServer
+CameraServer               DisplayServer              NativeMenu             RenderingServer           NavigationServer2D
+NavigationServer3D         PhysicsServer2D            PhysicsServer3D        XRServer                  GDScriptLanguageProtocol
+GDScriptInteractiveSession GutErrorTracker            GutHookScript          GutInputFactory           GutInputSender
+GutMain                    GutStringUtils             GutTest                GutTestMeta               GutTrackedError
+GutUtils                   Helper                     Urakata                UrakataCodeMode           UrakataMode
+UrakataShellMode 
+=> <null>
+
+# `ls target` shows the methods of a given target.
+code> ls current
+HBoxContainer
+  void free()                         String get_class()           void submit()       void linebreak()
+  void clear_prompt()                 void remove_following_text() void history_back() void history_forward()
+  void change_mode(mode: UrakataMode) 
+=> <null>
 ```
 
 
