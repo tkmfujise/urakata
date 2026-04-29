@@ -31,6 +31,13 @@ func execute(text: String) -> Variant:
 	if check_statement(text):
 		try_statement(text)
 		return null
+	elif text == 'ls':
+		Urakata.format(constants.keys())
+		return null
+	elif text.begins_with('ls '):
+		var subject = text.lstrip('ls ')
+		Urakata.describe(eval(subject))
+		return null
 	else:
 		var result = try_expression(text)
 		if result[0]:

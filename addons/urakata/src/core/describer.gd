@@ -44,13 +44,13 @@ func _init(object: Variant) -> void:
 	target = object
 
 
-# TODO
+# TODO: Not woriking on EditorInterface or ProjectSettings
 func format() -> String:
 	var text := "[b]%s[/b]\n" % type_name()
 	if typeof(target) == TYPE_OBJECT \
 	and not is_gdscript_native_class():
 		var arr := []
-		var method_list =  target.get_script_method_list() \
+		var method_list = target.get_script_method_list() \
 			if is_gdscript() else target.get_method_list()
 		for m in method_list:
 			if m['name'].begins_with('_'): continue

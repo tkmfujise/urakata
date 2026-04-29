@@ -4,6 +4,7 @@ class_name Urakata
 
 static var running_test : bool = false
 static var Describer := preload("res://addons/urakata/src/core/describer.gd")
+static var Formatter := preload("res://addons/urakata/src/core/formatter.gd")
 
 
 static func version() -> String:
@@ -72,3 +73,7 @@ static func bbcode_free_length(raw_text: String) -> int:
 
 static func describe(target: Variant) -> void:
 	print_rich(Describer.new(target).format())
+
+
+static func format(target: Variant) -> void:
+	print_rich(Formatter.new(target).perform())
