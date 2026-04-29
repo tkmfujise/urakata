@@ -174,6 +174,9 @@ Add a new element and set the following fields:
   * [x] Code mode
     * [x] Lambda is not working (e.g. `[1, 2].map(func(i): return i)`.
 
+### v0.1.2
+* [x] Add helper methods `ls` and `ls target` to Code mode.
+
 ### v0.2.0 or later
 * [ ] Add other useful modes
 * [ ] Bug fix
