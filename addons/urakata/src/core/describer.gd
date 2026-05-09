@@ -15,8 +15,7 @@ class Method:
 	func _init(dict: Dictionary) -> void:
 		name = dict['name']
 		args = []
-		is_static = dict['flags'] >= METHOD_FLAG_STATIC
-		print_debug(dict)
+		is_static = dict['flags'] & METHOD_FLAG_STATIC
 		for a in dict['args']:
 			args.push_back(Argument.new(a))
 		return_type = type_string(dict['return']['type']) \
