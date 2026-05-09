@@ -16,7 +16,8 @@ class Method:
 		for a in dict['args']:
 			args.push_back(Argument.new(a))
 		return_type = type_string(dict['return']['type']) \
-			if dict['return']['type'] else 'void'
+			if dict['return']['type'] else \
+			('Variant' if dict['return']['usage'] else 'void')
 
 	func format() -> String:
 		var args_formatted = ', '.join(args.map(func(a):
