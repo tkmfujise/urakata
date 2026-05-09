@@ -177,6 +177,9 @@ Add a new element and set the following fields:
 ### v0.1.2
 * [x] Add helper methods `ls` and `ls target` to Code mode.
 
+### v0.1.3
+* [x] Fix `ls target`
+
 ### v0.2.0 or later
 * [ ] Add other useful modes
 * [ ] Bug fix
