@@ -9,10 +9,12 @@ class Method:
 	var name : String
 	var args : Array[Argument]
 	var return_type : String
+	var is_static : bool
 
 	func _init(dict: Dictionary) -> void:
 		name = dict['name']
 		args = []
+		is_static = dict['flags'] >= METHOD_FLAG_STATIC
 		for a in dict['args']:
 			args.push_back(Argument.new(a))
 		return_type = type_string(dict['return']['type']) \
@@ -22,8 +24,11 @@ class Method:
 	func format() -> String:
 		var args_formatted = ', '.join(args.map(func(a):
 				return a.format()))
-		return "[cell padding=20,5,20,5][color=blue][i]%s[/i][/color] %s(%s)[/cell]" \
-				% [return_type, name, args_formatted]
+		return "[cell padding=20,5,20,5][color=blue][i]%s[/i][/color]%s %s(%s)[/cell]" \
+				% [return_type,
+				(' [color=blue]static[/color]' if is_static else ''),
+				name,
+				args_formatted]
 
 
 class Argument:
