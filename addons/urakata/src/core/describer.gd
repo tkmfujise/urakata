@@ -11,15 +11,16 @@ class Method:
 	var return_type : String
 	var is_static : bool
 
+	# FIXME: cannot distinguish return_type Variant and void
 	func _init(dict: Dictionary) -> void:
 		name = dict['name']
 		args = []
 		is_static = dict['flags'] >= METHOD_FLAG_STATIC
+		print_debug(dict)
 		for a in dict['args']:
 			args.push_back(Argument.new(a))
 		return_type = type_string(dict['return']['type']) \
-			if dict['return']['type'] else \
-			('Variant' if dict['return']['usage'] else 'void')
+			if dict['return']['type'] else 'Variant'
 
 	func format() -> String:
 		var args_formatted = ', '.join(args.map(func(a):
