@@ -71,8 +71,8 @@ static func bbcode_free_length(raw_text: String) -> int:
 	return clean_text.length()
 
 
-static func describe(target: Variant) -> void:
-	print_rich(Describer.new(target).format())
+static func describe(target: Variant, all: bool = false) -> void:
+	print_rich(Describer.new(target).format(all))
 
 
 static func format(target: Variant) -> void:

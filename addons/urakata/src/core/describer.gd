@@ -51,7 +51,7 @@ func _init(object: Variant) -> void:
 
 
 # TODO: Not woriking on EditorInterface or ProjectSettings
-func format() -> String:
+func format(all: bool = false) -> String:
 	var text := "[b]%s[/b]\n" % type_name()
 	if typeof(target) == TYPE_OBJECT \
 	and not is_gdscript_native_class():
@@ -60,7 +60,7 @@ func format() -> String:
 			if is_gdscript() else target.get_method_list()
 		for m in method_list:
 			if m['name'].begins_with('_'): continue
-			if not m['id'] == 0: continue
+			if not all and m['id'] != 0: continue
 			arr.push_back(Method.new(m).format())
 
 		var max_length = arr.map(func(a): \
