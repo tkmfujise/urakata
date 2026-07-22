@@ -111,6 +111,7 @@ func _prompt_input(event: InputEvent) -> void:
 		KEY_ENTER:
 			if k.shift_pressed: linebreak()
 			else: submit()
+			accept_event()
 		KEY_K:
 			if k.ctrl_pressed: remove_following_text()
 		KEY_L:
